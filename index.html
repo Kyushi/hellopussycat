@@ -8,12 +8,15 @@
     <ul id="cat-list"></ul>
     <div id="cat">
 
-        <h2 data-bind="text: name"></h2>
-        <div data-bind="text: clickCount"></div>
-        <div data-bind="text: level"></div>
-        <img src="" alt="cute cat" data-bind="click: incrementCounter, attr: {src: imgSrc}">
+        <h2 data-bind="text: currentCat().name"></h2>
+        <div data-bind="text: currentCat().clickCount"></div>
+        <div data-bind="text: currentCat().level"></div>
+        <img src=""
+             alt="cute cat"
+             data-bind="click: incrementCounter,
+                        attr: {src: currentCat().imgSrc}">
         <div>Nicknames</div>
-        <ul data-bind="foreach: nicknames">
+        <ul data-bind="foreach: currentCat().nicknames">
           <li data-bind="text: $data"></li>
         </ul>
         <!-- <pre data-bind="text: ko.toJSON($data, null, 2)"></pre> -->

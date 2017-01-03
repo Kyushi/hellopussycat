@@ -1,4 +1,4 @@
-var ViewModel = function() {
+var Cat = function(){
   this.clickCount = ko.observable(0);
   this.name = ko.observable("Kitty");
   this.nicknames = ko.observableArray(["Sweetie", "Kitty", "Bay-B", "Furball", "Scratchie"]);
@@ -20,12 +20,13 @@ var ViewModel = function() {
   this.level  = ko.computed(function(){
     return this.levelNo() >= 5? "Cat Royalty": this.levels()[this.levelNo()];
   }, this);
+}
 
+var ViewModel = function() {
+  this.currentCat = ko.observable(new Cat());
   this.incrementCounter = function() {
-    this.clickCount(this.clickCount() + 1);
+    this.currentCat().clickCount(this.currentCat().clickCount() + 1);
   }
-
-
 }
 
 ko.applyBindings(new ViewModel());
