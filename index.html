@@ -12,7 +12,10 @@
         <div data-bind="text: clickCount"></div>
         <div data-bind="text: level"></div>
         <img src="" alt="cute cat" data-bind="click: incrementCounter, attr: {src: imgSrc}">
-        <!-- <ul data-bind="text: nicknames"></ul> -->
+        <div>Nicknames</div>
+        <ul data-bind="foreach: nicknames">
+          <li data-bind="text: $data"></li>
+        </ul>
         <!-- <pre data-bind="text: ko.toJSON($data, null, 2)"></pre> -->
     </div>
     <script src="js/lib/knockout-3.2.0.js"></script>
