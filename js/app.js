@@ -17,7 +17,7 @@ var ViewModel = function() {
   ]);
 
   this.level  = ko.computed(function(){
-    return this.levels()[this.levelNo()];
+    return this.levelNo() >= 5? "Cat Royalty": this.levels()[this.levelNo()];
   }, this);
 
   this.incrementCounter = function() {
